@@ -1,0 +1,17 @@
+﻿<Window x:Class="New_CA2_Assignment.Search"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:New_CA2_Assignment"
+        mc:Ignorable="d"
+        Title="Search" Height="319.412" Width="649.412">
+    <Grid>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Height="110" Width="568"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btn_searh" Content="search" HorizontalAlignment="Left" Margin="0,105,0,0" VerticalAlignment="Top" Width="75" Click="btn_searh_Click"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="153" Margin="162,10,0,0" VerticalAlignment="Top" Width="241"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Window>

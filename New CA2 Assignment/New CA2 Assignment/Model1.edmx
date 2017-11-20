@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="saadDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bmaintenance">
+          <Key>
+            <PropertyRef Name="Sno" />
+          </Key>
+          <Property Name="Sno" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Maintenance Date" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Service Provider Stats" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Equipment Down Time" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cost of maintenance" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Maintenance last six month" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Component">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Component Number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Replacement Date" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cost" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Name_of_maintenance_Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name of the Company" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contact Person Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contact Person Telephone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cost" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Qualified_employees">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Social Security Number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Department" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cost" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contact Numbet" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Services_by_a_Company">
+          <Key>
+            <PropertyRef Name="Sno" />
+          </Key>
+          <Property Name="Sno" Type="int" Nullable="false" />
+          <Property Name="Name of the Company" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Number of services Performed" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telephone Number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contact Number" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="shutdown">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Manufacturing Date" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="service providerdetails" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Equipment Down Time" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cost of maintenance" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Shutdown maintenance performed" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="smaintenance">
+          <Key>
+            <PropertyRef Name="Sno" />
+          </Key>
+          <Property Name="Sno" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Maintenance Date" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Service Provider Stats" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Equipment Down Time" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cost of maintenance" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Maintenance last six month" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Username">
+          <Key>
+            <PropertyRef Name="User id" />
+          </Key>
+          <Property Name="User id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Forename" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Access Level" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="saadDBModelStoreContainer">
+          <EntitySet Name="bmaintenance" EntityType="Self.bmaintenance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Component" EntityType="Self.Component" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Name_of_maintenance_Company" EntityType="Self.Name_of_maintenance_Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Qualified_employees" EntityType="Self.Qualified_employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Services_by_a_Company" EntityType="Self.Services_by_a_Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="shutdown" EntityType="Self.shutdown" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="smaintenance" EntityType="Self.smaintenance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Username" EntityType="Self.Username" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="saadDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="shutdown">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Manufacturing_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="service_providerdetails" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Equipment_Down_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cost_of_maintenance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Shutdown_maintenance_performed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Username">
+          <Key>
+            <PropertyRef Name="User_id" />
+          </Key>
+          <Property Name="User_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Forename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Username1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Access_Level" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="newsaadDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="shutdowns" EntityType="Self.shutdown" />
+          <EntitySet Name="Usernames" EntityType="Self.Username" />
+          <EntitySet Name="bmaintenances" EntityType="saadDBModel.bmaintenance" />
+          <EntitySet Name="smaintenances" EntityType="saadDBModel.smaintenance" />
+          <EntitySet Name="Components" EntityType="saadDBModel.Component" />
+          <EntitySet Name="Name_of_maintenance_Company" EntityType="saadDBModel.Name_of_maintenance_Company" />
+          <EntitySet Name="Qualified_employees" EntityType="saadDBModel.Qualified_employees" />
+          <EntitySet Name="Services_by_a_Company" EntityType="saadDBModel.Services_by_a_Company" />
+        </EntityContainer>
+        <EntityType Name="bmaintenance">
+          <Key>
+            <PropertyRef Name="Sno" />
+          </Key>
+          <Property Name="Sno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Maintenance_Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Service_Provider_Stats" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Equipment_Down_Time" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cost_of_maintenance" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Maintenance_last_six_month" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="smaintenance">
+          <Key>
+            <PropertyRef Name="Sno" />
+          </Key>
+          <Property Name="Sno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Maintenance_Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Service_Provider_Stats" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Equipment_Down_Time" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cost_of_maintenance" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Maintenance_last_six_month" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Component">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Component_Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Replacement_Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cost" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Name_of_maintenance_Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name_of_the_Company" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contact_Person_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contact_Person_Telephone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cost" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Qualified_employees">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Social_Security_Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Department" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cost" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contact_Numbet" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Services_by_a_Company">
+          <Key>
+            <PropertyRef Name="Sno" />
+          </Key>
+          <Property Name="Sno" Type="Int32" Nullable="false" />
+          <Property Name="Name_of_the_Company" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Number_of_services_Performed" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone_Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contact_Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="saadDBModelStoreContainer" CdmEntityContainer="newsaadDBEntities">
+          <EntitySetMapping Name="shutdowns">
+            <EntityTypeMapping TypeName="saadDBModel.shutdown">
+              <MappingFragment StoreEntitySet="shutdown">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Manufacturing_Date" ColumnName="Manufacturing Date" />
+                <ScalarProperty Name="service_providerdetails" ColumnName="service providerdetails" />
+                <ScalarProperty Name="Equipment_Down_Time" ColumnName="Equipment Down Time" />
+                <ScalarProperty Name="Cost_of_maintenance" ColumnName="Cost of maintenance" />
+                <ScalarProperty Name="Shutdown_maintenance_performed" ColumnName="Shutdown maintenance performed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usernames">
+            <EntityTypeMapping TypeName="saadDBModel.Username">
+              <MappingFragment StoreEntitySet="Username">
+                <ScalarProperty Name="User_id" ColumnName="User id" />
+                <ScalarProperty Name="Forename" ColumnName="Forename" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Username1" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Access_Level" ColumnName="Access Level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bmaintenances">
+            <EntityTypeMapping TypeName="saadDBModel.bmaintenance">
+              <MappingFragment StoreEntitySet="bmaintenance">
+                <ScalarProperty Name="Maintenance_last_six_month" ColumnName="Maintenance last six month" />
+                <ScalarProperty Name="Cost_of_maintenance" ColumnName="Cost of maintenance" />
+                <ScalarProperty Name="Equipment_Down_Time" ColumnName="Equipment Down Time" />
+                <ScalarProperty Name="Service_Provider_Stats" ColumnName="Service Provider Stats" />
+                <ScalarProperty Name="Maintenance_Date" ColumnName="Maintenance Date" />
+                <ScalarProperty Name="Sno" ColumnName="Sno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="smaintenances">
+            <EntityTypeMapping TypeName="saadDBModel.smaintenance">
+              <MappingFragment StoreEntitySet="smaintenance">
+                <ScalarProperty Name="Maintenance_last_six_month" ColumnName="Maintenance last six month" />
+                <ScalarProperty Name="Cost_of_maintenance" ColumnName="Cost of maintenance" />
+                <ScalarProperty Name="Equipment_Down_Time" ColumnName="Equipment Down Time" />
+                <ScalarProperty Name="Service_Provider_Stats" ColumnName="Service Provider Stats" />
+                <ScalarProperty Name="Maintenance_Date" ColumnName="Maintenance Date" />
+                <ScalarProperty Name="Sno" ColumnName="Sno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Components">
+            <EntityTypeMapping TypeName="saadDBModel.Component">
+              <MappingFragment StoreEntitySet="Component">
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Replacement_Date" ColumnName="Replacement Date" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Component_Number" ColumnName="Component Number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Name_of_maintenance_Company">
+            <EntityTypeMapping TypeName="saadDBModel.Name_of_maintenance_Company">
+              <MappingFragment StoreEntitySet="Name_of_maintenance_Company">
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Contact_Person_Telephone" ColumnName="Contact Person Telephone" />
+                <ScalarProperty Name="Contact_Person_Name" ColumnName="Contact Person Name" />
+                <ScalarProperty Name="Name_of_the_Company" ColumnName="Name of the Company" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Qualified_employees">
+            <EntityTypeMapping TypeName="saadDBModel.Qualified_employees">
+              <MappingFragment StoreEntitySet="Qualified_employees">
+                <ScalarProperty Name="Contact_Numbet" ColumnName="Contact Numbet" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Social_Security_Number" ColumnName="Social Security Number" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Services_by_a_Company">
+            <EntityTypeMapping TypeName="saadDBModel.Services_by_a_Company">
+              <MappingFragment StoreEntitySet="Services_by_a_Company">
+                <ScalarProperty Name="Contact_Number" ColumnName="Contact Number" />
+                <ScalarProperty Name="Telephone_Number" ColumnName="Telephone Number" />
+                <ScalarProperty Name="Number_of_services_Performed" ColumnName="Number of services Performed" />
+                <ScalarProperty Name="Name_of_the_Company" ColumnName="Name of the Company" />
+                <ScalarProperty Name="Sno" ColumnName="Sno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

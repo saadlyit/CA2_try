@@ -1,0 +1,43 @@
+﻿<Window x:Class="New_CA2_Assignment.Dashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:New_CA2_Assignment"
+        mc:Ignorable="d"
+        Title="Dashboard" Height="346.5" Width="661.5" WindowState="Maximized">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/leo.jpg" Opacity="0.6" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Button x:Name="button" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Width="124" Height="114" Click="button_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/euipment btn.png"/>
+            </Button.Background>
+            <Button.Content>
+                <StackPanel Orientation="Horizontal" Height="104"/>
+            </Button.Content>
+        </Button>
+
+        <Button x:Name="button1" Margin="500,10,0,0" VerticalAlignment="Top" Click="button1_Click" Height="69" HorizontalAlignment="Left" Width="121">
+            <Button.Content>
+                <StackPanel Orientation="Horizontal" Height="69">
+                    <Image Source="C:\Users\muhammad\documents\visual studio 2015\Projects\New CA2 Assignment\New CA2 Assignment\Images\1558593_1043498082376497_7753342027327077868_n.jpg" Width="112" RenderTransformOrigin="0.487,0.478" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <Button x:Name="btn_Componenet_info" Content="Button" HorizontalAlignment="Left" Margin="258,102,0,0" VerticalAlignment="Top" Width="124" Height="114" Click="btn_Componenet_info_Click" >
+            <Button.Background>
+                <ImageBrush ImageSource="Images/componenet.jpg"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Btn_ainte_service" Content="Maintenance Service" HorizontalAlignment="Left" Margin="520,102,0,0" VerticalAlignment="Top" Width="124" Click="Btn_ainte_service_Click" Height="114">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/maintenance.jpg"/>
+            </Button.Background>
+        </Button>
+        <Label x:Name="label" Content="Equipment Information" HorizontalAlignment="Left" Margin="17,233,0,0" VerticalAlignment="Top" Width="124"/>
+        <Label x:Name="label1" Content="Component Information" HorizontalAlignment="Left" Margin="258,233,0,0" VerticalAlignment="Top" Width="124"/>
+
+    </Grid>
+</Window>
