@@ -35,9 +35,7 @@ namespace New_CA2_Assignment
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            saad ss = new saad();
-            ss.Show();
-            this.Hide();
+            
         }
 
         private void btn_Componenet_info_Click(object sender, RoutedEventArgs e)

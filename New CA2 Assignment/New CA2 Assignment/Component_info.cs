@@ -25,33 +25,60 @@ namespace New_CA2_Assignment
 
         private void btnadd_Click(object sender, EventArgs e)
         {
-            
-            con.Open();
-            string query = @"UPDATE Component SET [Component Number] = '" + textcomponent_num.Text + "', [Name] = '" + textName.Text + "', [Replacement Date] = '" + textReplce_date.Text + "', [Cost] = '" + textCost.Text + "' WHERE Id = '" + textId.Text + "'";
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            da.SelectCommand.ExecuteNonQuery();
-            con.Close();
-            MessageBox.Show("Updated");
+            // this method is being tested in the below method
+            string sno = textId.Text;
+            string component = textcomponent_num.Text;
+            string name = textName.Text;
+            string replace_date = textReplce_date.Text;
+            string cost = textCost.Text;
+            bool flag = updatevalues(sno, component, name, replace_date, cost);
         }
-
-
-        private void btnsave_Click(object sender, EventArgs e)
+        public bool updatevalues(string sno, string component, string name, string replace_date, string cost)
         {
+            bool flag = false;
+            try
+            {
+                con.Open();
+                string query = @"UPDATE Component SET [Component Number] = '" + component + "', [Name] = '" + name + "', [Replacement Date] = '" + replace_date + "', [Cost] = '" + cost + "' WHERE Id = '" + sno + "'";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                da.SelectCommand.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Updated");
+                flag = true;
+            }
+            catch { }
+            return flag;
+        }
+        //this method getting the value from unittest 
+
+        public bool savevalue(string sno, string component, string name, string replace_date, string cost)
+        {
+            bool flag = false;
             try
             {
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into [Component] Values('" + textId.Text + "','" + textcomponent_num.Text + "','" + textName.Text + "','" + textReplce_date.Text + "','" + textCost.Text + "')";
+                cmd.CommandText = "insert into [Component] Values('" + sno + "','" + component + "','" + name + "','" + replace_date + "','" + cost + "')";
                 cmd.ExecuteNonQuery();
                 con.Close();
-                MessageBox.Show("succ");
+                MessageBox.Show("successfuly save", "info", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                flag = true;
 
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+            catch { }
+            return flag;
+        }
+
+        private void btnsave_Click(object sender, EventArgs e)
+        {
+            // this method is being tested in the below method
+            string sno = textId.Text;
+            string component = textcomponent_num.Text;
+            string name = textName.Text;
+            string replace_date = textReplce_date.Text;
+            string cost = textCost.Text;
+            bool flag = savevalue(sno, component, name, replace_date, cost);
         }
 
         private void dataGridView2_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -61,23 +88,54 @@ namespace New_CA2_Assignment
 
         private void btnrefresh_Click(object sender, EventArgs e)
         {
-            con.Open();
-            string query = "Select * from [Component]";
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataGridView2.DataSource = dt;
-            con.Close();
+            string a = "btnclick";
+            view(a);
         }
+        //this method getting the value from unittest 
 
+        public bool view(string a)
+        {
+            bool flag = false;
+            try
+            {
+                if (a == "btnclick") {
+                    con.Open();
+                    string query = "Select * from [Component]";
+                    SqlDataAdapter da = new SqlDataAdapter(query, con);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dataGridView2.DataSource = dt;
+                    con.Close();
+                    flag = true; }
+            }
+            catch { }
+            return flag;
+        }
+        
         private void btndelete_Click(object sender, EventArgs e)
         {
-            con.Open();
-            string query = "Delete From [Component] Where [Id]= '" + textId.Text + "'";
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            da.SelectCommand.ExecuteNonQuery();
-            con.Close();
-            MessageBox.Show("Record has been deleted successfully");
+            // this method is being tested in the below method
+            string sno = textId.Text;
+            bool flag = deletevalue(sno);
+
+        }
+        //this method getting the value from unittest 
+
+        public bool deletevalue(string sno)
+        {
+            bool flag = false;
+            try
+            {
+                con.Open();
+                string query = "Delete From [Component] Where [Id]= '" + sno + "'";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                da.SelectCommand.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Record has been deleted successfully");
+                flag = true;
+            }
+            catch { }
+            return flag;
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -102,14 +160,15 @@ namespace New_CA2_Assignment
         }
 
         private void Btn_logout_Click(object sender, EventArgs e)
-        {
-            MainWindow log = new MainWindow();
-            log.Show();
+        {  //goto login page
             this.Hide();
+            MainWindow login = new MainWindow();
+            login.Show();
+
         }
 
         private void Btn_detail_Click(object sender, EventArgs e)
-        {
+        {//this method is already tested
             con.Open();
             string query = "Select * from [Component]";
             SqlDataAdapter da = new SqlDataAdapter(query, con);

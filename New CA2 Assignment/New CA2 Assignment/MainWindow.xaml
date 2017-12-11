@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:New_CA2_Assignment"
         mc:Ignorable="d"
         Title="MainWindow" Height="250" Width="525" WindowStartupLocation="CenterScreen"
-WindowStyle="None" Loaded="Window_Loaded">
+WindowStyle="None" >
     <Grid Opacity="0.9">
         <Grid.Background>
             <ImageBrush ImageSource="Images/splash.jpg" Stretch="UniformToFill" Opacity="0.83"/>

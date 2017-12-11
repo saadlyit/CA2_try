@@ -22,51 +22,101 @@ namespace New_CA2_Assignment
 
         private void btnn_update_Click(object sender, EventArgs e)
         {
-            con.Open();
-            //string query = "Update [Username] SET [User id] = '" + textuserid.Text + "',[Forename]='" + textforname.Text + "',[Surname]='" + textsurname.Text + "',[Username] ='" + textpassword.Text + "',[Password] = '" + textpassword.Text + "',[Access Level] = '" + combobox_accesslevel.Text+ "'";
-            string query = @"UPDATE Username SET [Forename] = '" + textforname.Text + "', [Surname] = '" + textsurname.Text + "', [Username] = '" + textusename.Text + "', [Password] = '" + textpassword.Text + "', [Access Level] = '" + combobox_accesslevel.Text + "' WHERE [User id] = '" + textuserid.Text + "'";
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            da.SelectCommand.ExecuteNonQuery();
-            con.Close();
-            MessageBox.Show("Successfully Updated", "Info", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            string id = textuserid.Text;
+            string forename = textforname.Text;
+            string surname = textsurname.Text;
+            string username = textsurname.Text;
+            string password = textpassword.Text;
+            string acc_level = combobox_accesslevel.Text;
+            bool flag = update_value(id,forename,surname,username,password,acc_level);
         }
+        //this method getting the value from unittest 
 
+        public bool update_value(string id, string forename,string surname,string username,string password,string acc_level)
+        {
+            bool flag = false;
+            try
+            {
+                con.Open();
+                //string query = "Update [Username] SET [User id] = '" + textuserid.Text + "',[Forename]='" + textforname.Text + "',[Surname]='" + textsurname.Text + "',[Username] ='" + textpassword.Text + "',[Password] = '" + textpassword.Text + "',[Access Level] = '" + combobox_accesslevel.Text+ "'";
+                string query = @"UPDATE Username SET [Forename] = '" + forename + "', [Surname] = '" + surname + "', [Username] = '" + username + "', [Password] = '" + password + "', [Access Level] = '" + acc_level + "' WHERE [User id] = '" + id + "'";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                da.SelectCommand.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Successfully Updated", "Info", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                flag = true;
+            }
+            catch { }
+            return flag;
+            }
         private void Btnn_vieww_Click(object sender, EventArgs e)
         {
-            con.Open();
-            string query = "Select * from [Username]";
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataGridViiew_userdetails.DataSource = dt;
-            con.Close();
+            string a = "btnclick";
+            bool flag = view(a);
         }
+        //this method getting the value from unittest 
 
+        public bool view(string a)
+        {
+            bool flag = false;
+            try
+            {
+                if (a=="btnclick") {
+                    con.Open();
+                    string query = "Select * from [Username]";
+                    SqlDataAdapter da = new SqlDataAdapter(query, con);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dataGridViiew_userdetails.DataSource = dt;
+                    con.Close();
+                    flag = true;
+                }
+            }
+            catch { }
+            return flag;
+        }
         private void Btnn_savee_Click(object sender, EventArgs e)
         {
-            if (combobox_accesslevel.Text == "1" || combobox_accesslevel.Text == "2")
+            string id = textuserid.Text;
+            string forename = textforname.Text;
+            string surname = textsurname.Text;
+            string username = textsurname.Text;
+            string password = textpassword.Text;
+            string acc_level = combobox_accesslevel.Text;
+            bool flag = save_value(id, forename, surname, username, password, acc_level);
+
+        }
+        //this method getting the value from unittest 
+
+        public bool save_value(string id, string forename, string surname, string username, string password, string acc_level)
+        {
+            bool flag = false;
+            if (acc_level == "1" || acc_level == "2")
             {
                 try
                 {
                     con.Open();
                     SqlCommand cmd = con.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "insert into [Username] Values('" + textuserid.Text + "','" + textforname.Text + "','" + textsurname.Text + "','" + textusename.Text + "','" + textpassword.Text + "','" + combobox_accesslevel.Text + "')";
+                    cmd.CommandText = "insert into [Username] Values('" + id + "','" + forename + "','" + surname + "','" + username + "','" + password + "','" + acc_level + "')";
                     cmd.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Successfully saved", "Info", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    flag = true;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
                 }
+               
             }
-            else {
+            else
+            {
                 MessageBox.Show("Please select access level number", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
+            return flag;
         }
-
         private void dataGridViiew_userdetails_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             textuserid.Text = dataGridViiew_userdetails.SelectedRows[0].Cells[0].Value.ToString();
@@ -103,18 +153,33 @@ namespace New_CA2_Assignment
             Equipment_Info equip = new Equipment_Info();
             equip.Show();
         }
+        //this method getting the value from unittest 
 
         private void Btnn_deletee_Click(object sender, EventArgs e)
         {
+            string id = textuserid.Text;
             
+            bool flag = delete_value(id);
+                    }
+        //this method getting the value from unittest 
+
+        public bool delete_value(string id)
+        {
+            bool flag = false;
+
+            try
             {
                 con.Open();
-                string query = "Delete From [Username] Where [User id]= '" + textuserid.Text + "'";
+                string query = "Delete From [Username] Where [User id]= '" + id + "'";
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 da.SelectCommand.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Successfully Deleted", "Info", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                flag = true;
             }
+            catch { }
+            return flag;
+
         }
     }
 }

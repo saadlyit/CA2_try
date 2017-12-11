@@ -52,9 +52,11 @@ namespace New_CA2_Assignment
 
         private void Btn_log_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow logut = new MainWindow();
-            logut.Show();
+            //goto login page
             this.Hide();
+            MainWindow login = new MainWindow();
+            login.Show();
+
         }
 
         private void btn_company_Click(object sender, RoutedEventArgs e)
