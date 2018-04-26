@@ -61,7 +61,8 @@ namespace New_CA2_Assignment
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
-                if (dt.Rows[0][0].ToString() == "1")
+                if (dt.Rows[0][0].ToString() == "1") //it will return first row
+                                                     //give you the value in cloumb 
                 {
                     this.Hide();
                     Admin_dashboard ad = new Admin_dashboard();

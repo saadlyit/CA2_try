@@ -12,7 +12,7 @@ namespace Testing
         public void Breakdown_add_Test()
         {
             Breakdown_Maintenance b = new Breakdown_Maintenance();// create obj b
-            bool acutal = b.savevalues("4", "test", "test", "test", "test", "test");//enter all right values in savevalues method.
+            bool acutal = b.savevalues("4", "test", "test", "test", "test", "test");//This is the text i m updating in database
             bool expected = true;//returned bool value from method savevalues method
             Assert.AreEqual(expected, acutal, "You did something wrong");// expected is true  whereas actual is should match
         }
@@ -223,7 +223,7 @@ namespace Testing
             Assert.AreEqual(expected, actual, "You did something wrong");// expected is false  whereas actual is should match
         }
 
-            [TestMethod]
+        [TestMethod]
         public void Shutdown_save_Test()
         {
             Shutdown_Maintenance c = new Shutdown_Maintenance();// create obj ad
@@ -269,7 +269,7 @@ namespace Testing
         public void login_vlaue_test()
         {
             MainWindow main = new MainWindow(); //declare obj main
-            bool actual = main.Login_pagess("shah","shah");// enter valid username and password
+            bool actual = main.Login_pagess("shah", "shah");// enter valid username and password
             bool expected = true; ////returned bool value from method login_pagess method 
             Assert.AreEqual(expected, actual, "You did something wrong");// expected is true  whereas actual is should match
         }

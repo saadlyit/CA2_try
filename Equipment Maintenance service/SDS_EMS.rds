@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="SDS_EMS">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=172.28.134.5;Initial Catalog=EMS</ConnectString>
+    <Prompt>Specify a user name and password for data source SDS_EMS:</Prompt>
+  </ConnectionProperties>
+  <DataSourceID>107f08cc-3039-4012-b593-9bb630247fe4</DataSourceID>
+</RptDataSource>

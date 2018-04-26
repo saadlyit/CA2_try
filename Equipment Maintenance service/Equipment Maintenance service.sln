@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Equipment Maintenance service", "Equipment Maintenance service.rptproj", "{0DFE15E7-8F06-4A31-B8E8-00D128C12765}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DFE15E7-8F06-4A31-B8E8-00D128C12765}.Debug|Default.ActiveCfg = Debug
+		{0DFE15E7-8F06-4A31-B8E8-00D128C12765}.Debug|Default.Build.0 = Debug
+		{0DFE15E7-8F06-4A31-B8E8-00D128C12765}.Debug|Default.Deploy.0 = Debug
+		{0DFE15E7-8F06-4A31-B8E8-00D128C12765}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{0DFE15E7-8F06-4A31-B8E8-00D128C12765}.DebugLocal|Default.Build.0 = DebugLocal
+		{0DFE15E7-8F06-4A31-B8E8-00D128C12765}.Release|Default.ActiveCfg = Release
+		{0DFE15E7-8F06-4A31-B8E8-00D128C12765}.Release|Default.Build.0 = Release
+		{0DFE15E7-8F06-4A31-B8E8-00D128C12765}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
